@@ -35,7 +35,14 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    self.pathbar.theme = @"Light";
+//    self.pathbar.theme = @"Light";
+    self.pathbar.textColor = [NSColor blackColor];
+    self.pathbar.highlightedTextColor = [NSColor whiteColor];
+    
+    self.pathbar.isTextShadowed = YES;
+    self.pathbar.textShadowColor = [NSColor redColor];
+    self.pathbar.highlightedTextShadowColor = [NSColor redColor];
+    
     [self.pathbar setAction:@selector(pathbarAction:)];
     [self.pathbar setTarget:self];
     

@@ -71,26 +71,27 @@
 
 - (void)drawInteriorWithFrame:(NSRect)cellFrame inView:(NSView *)controlView {
     if (self.isHighlighted) {
-        [self setTextColor:[NSColor whiteColor]];
+        [self setTextColor:self.pathbar.highlightedTextColor];
     } else {
-        [self setTextColor:[NSColor blackColor]];
+        [self setTextColor:self.pathbar.textColor];
     }
     
     [NSGraphicsContext saveGraphicsState];
     {
-        NSShadow *shadow = [NSShadow new];
-        
-        if ([self isHighlighted]) {
-            [shadow setShadowBlurRadius:1.0];
-            [shadow setShadowOffset:NSMakeSize(0, -1)];
-            [shadow setShadowColor:[NSColor blackColor]];
-        } else {
-            [shadow setShadowBlurRadius:0.0];
-            [shadow setShadowOffset:NSMakeSize(0, -1)];
-            [shadow setShadowColor:[NSColor whiteColor]];
+        if (self.pathbar.isTextShadowed) {
+            NSShadow *shadow = [NSShadow new];
+            
+            if ([self isHighlighted]) {
+                [shadow setShadowBlurRadius:1.0];
+                [shadow setShadowOffset:NSMakeSize(0, -1)];
+                [shadow setShadowColor:self.pathbar.highlightedTextShadowColor];
+            } else {
+                [shadow setShadowBlurRadius:0.0];
+                [shadow setShadowOffset:NSMakeSize(0, -1)];
+                [shadow setShadowColor:self.pathbar.textShadowColor];
+            }
+            [shadow set];
         }
-        
-        [shadow set];
         
         [super drawInteriorWithFrame:cellFrame inView:controlView];
     }

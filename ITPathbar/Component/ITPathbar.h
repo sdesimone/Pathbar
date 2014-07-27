@@ -41,6 +41,12 @@
 @interface ITPathbar : NSPathControl
 
 @property (nonatomic, copy) NSString* theme;
+@property (nonatomic, copy) NSColor* textColor;
+@property (nonatomic, copy) NSColor* highlightedTextColor;
+
+@property (nonatomic) BOOL isTextShadowed;
+@property (nonatomic, copy) NSColor* textShadowColor;
+@property (nonatomic, copy) NSColor* highlightedTextShadowColor;
 
 - (NSString*)themedResouceWithName:(NSString*)name;
 
