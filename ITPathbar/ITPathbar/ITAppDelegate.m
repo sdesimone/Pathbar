@@ -62,6 +62,10 @@
     [self.pathbar removeLastItem];
 }
 
+- (IBAction)removeAll:(id)sender {
+    [self.pathbar removeAllItems];
+}
+
 - (IBAction)pathbarAction:(id)sender {
     NSLog(@"%@ clicked", [(ITPathbar *)sender clickedPathComponentCell]);
 }

@@ -89,6 +89,11 @@
     [self removeItemAtIndex:(self.pathComponentCells.count - 1)];
 }
 
+- (void)removeAllItems {
+    for (NSInteger i = self.pathComponentCells.count - 1; i >= 0; --i)
+        [self removeItemAtIndex:i];
+}
+
 - (NSSize)intrinsicContentSize {
     return NSMakeSize(NSViewNoInstrinsicMetric, NSViewNoInstrinsicMetric);
 }

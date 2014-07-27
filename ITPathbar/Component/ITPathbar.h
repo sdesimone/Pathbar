@@ -52,7 +52,9 @@
 
 - (void)insertItemWithTitle:(NSString *)title atIndex:(NSInteger)index;
 - (void)addItemWithTitle:(NSString *)title;
+
 - (void)removeItemAtIndex:(NSInteger)index;
 - (void)removeLastItem;
+- (void)removeAllItems;
 
 @end
