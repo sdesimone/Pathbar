@@ -86,7 +86,10 @@
 }
 
 - (void)removeLastItem {
-    [self removeItemAtIndex:(self.pathComponentCells.count - 1)];
+    if (self.pathComponentCells.count > 0)
+        [self removeItemAtIndex:(self.pathComponentCells.count - 1)];
+    else
+        NSLog(@"Removing too many path bar item -- brek here to debug");
 }
 
 - (void)removeAllItems {
