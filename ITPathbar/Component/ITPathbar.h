@@ -40,6 +40,10 @@
 
 @interface ITPathbar : NSPathControl
 
+@property (nonatomic, copy) NSString* theme;
+
+- (NSString*)themedResouceWithName:(NSString*)name;
+
 - (void)insertItemWithTitle:(NSString *)title atIndex:(NSInteger)index;
 - (void)addItemWithTitle:(NSString *)title;
 - (void)removeItemAtIndex:(NSInteger)index;

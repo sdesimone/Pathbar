@@ -124,7 +124,7 @@
 				91A250631656A0C40006BBCF /* MainMenu.xib */,
 				91A250741656A20E0006BBCF /* ITPathbar */,
 				91A250551656A0C40006BBCF /* Supporting Files */,
-				91A250771656A2510006BBCF /* images */,
+				91A250771656A2510006BBCF /* themes */,
 			);
 			path = ITPathbar;
 			sourceTree = "<group>";
@@ -154,7 +154,7 @@
 			name = ITPathbar;
 			sourceTree = "<group>";
 		};
-		91A250771656A2510006BBCF /* images */ = {
+		91A250771656A2510006BBCF /* themes */ = {
 			isa = PBXGroup;
 			children = (
 				49129C291984E2E600E2F5AC /* ITPathbar-edge.png */,
@@ -172,7 +172,7 @@
 				49129C351984E2E600E2F5AC /* ITPathbar-separator.png */,
 				49129C361984E2E600E2F5AC /* ITPathbar-separator@2x.png */,
 			);
-			name = images;
+			name = themes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

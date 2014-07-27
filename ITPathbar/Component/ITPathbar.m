@@ -37,6 +37,14 @@
     return [ITPathbarCell class];
 }
 
+- (NSString*)theme {
+    return _theme?:@"ITPathbar";
+}
+
+- (NSString*)themedResouceWithName:(NSString*)name {
+    return [NSString stringWithFormat:@"%@-%@", self.theme, name];
+}
+
 - (void)pinHeight {
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self
                                                      attribute:NSLayoutAttributeHeight

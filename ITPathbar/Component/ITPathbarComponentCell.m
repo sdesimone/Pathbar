@@ -32,7 +32,19 @@
 #import "ITPathbarComponentCell.h"
 #import "ITPathbar.h"
 
+@interface ITPathbarComponentCell ()
+
+- (ITPathbar*)pathbar;
+
+@end
+
 @implementation ITPathbarComponentCell
+
+- (ITPathbar*)pathbar {
+    
+    NSAssert([self.controlView isKindOfClass:[ITPathbar class]], @"Wrong control view type.");
+    return (id)self.controlView;
+}
 
 - (void)drawFocusRingMaskWithFrame:(NSRect)cellFrame inView:(NSView *)controlView {
 }
@@ -44,17 +56,6 @@
 - (BOOL)isFirstItem {
     return [[self valueForKey:@"_isFirstItem"] boolValue];
 }
-/*
- * Lion workaround
-- (BOOL)isLastItem {
-    NSArray *cells = [(ITPathbar *)[self controlView] pathComponentCells];
-    return ([cells lastObject] == self);
-}
-
-- (BOOL)isFirstItem {
-    NSArray *cells = [(ITPathbar *)[self controlView] pathComponentCells];
-    return (cells[0] == self);
-}*/
 
 - (BOOL)isHighlighted {
     if ([self isLastItem]) {
@@ -109,22 +110,22 @@
     NSImage *rightArrow;
     
     if (self.isHighlighted) {
-        backgroundImage = [NSImage imageNamed:@"ITPathbar-highlight"];
+        backgroundImage = [NSImage imageNamed:[self.pathbar themedResouceWithName:@"highlight"]];
         
         if (![self isFirstItem]) {
-            leftArrow = [NSImage imageNamed:@"ITPathbar-highlight-arrow-left"];
+            leftArrow = [NSImage imageNamed:[self.pathbar themedResouceWithName:@"highlight-arrow-left"]];
         }
         
         if ([self isLastItem]) {
-            rightArrow = [NSImage imageNamed:@"ITPathbar-highlight-edge"];
+            rightArrow = [NSImage imageNamed:[self.pathbar themedResouceWithName:@"highlight-edge"]];
         } else {
-            rightArrow = [NSImage imageNamed:@"ITPathbar-highlight-arrow-right"];
+            rightArrow = [NSImage imageNamed:[self.pathbar themedResouceWithName:@"highlight-arrow-right"]];
         }
     } else {
         if ([self isLastItem]) {
-            rightArrow = [NSImage imageNamed:@"ITPathbar-edge"];
+            rightArrow = [NSImage imageNamed:[self.pathbar themedResouceWithName:@"edge"]];
         } else {
-            rightArrow = [NSImage imageNamed:@"ITPathbar-separator"];
+            rightArrow = [NSImage imageNamed:[self.pathbar themedResouceWithName:@"separator"]];
         }
     }
     

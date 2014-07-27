@@ -30,6 +30,13 @@
 // EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "ITPathbarCell.h"
+#import "ITPathbar.h"
+
+@interface ITPathbarCell ()
+
+- (ITPathbar*)pathbar;
+
+@end
 
 @implementation ITPathbarCell
 
@@ -37,8 +44,14 @@
     return [ITPathbarComponentCell class];
 }
 
+- (ITPathbar*)pathbar {
+    
+    NSAssert([self.controlView isKindOfClass:[ITPathbar class]], @"Wrong control view type.");
+    return (id)self.controlView;
+}
+
 - (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView {
-    NSImage *background = [NSImage imageNamed:@"ITPathbar-fill"];
+    NSImage *background = [NSImage imageNamed:[self.pathbar themedResouceWithName:@"fill"]];
     [background drawInRect:cellFrame fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:NO];
     
     [super drawWithFrame:cellFrame inView:controlView];
