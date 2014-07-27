@@ -35,6 +35,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    self.pathbar.theme = @"Light";
     [self.pathbar setAction:@selector(pathbarAction:)];
     [self.pathbar setTarget:self];
     
